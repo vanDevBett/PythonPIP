@@ -7,13 +7,14 @@ cd Game
 python3 main.py
 ```
 
-# Game Project
+# App Project
 
 To run the app follow the instructions below:
 
 ```sh
 git clone
 cd app
+python3 -m venv gamenv
 source/bin/activate
 pip3 install -r requirements.txt
 python3 main.py
