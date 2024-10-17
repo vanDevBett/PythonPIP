@@ -21,8 +21,10 @@ def run():
 import mod
 import read_csv
 import charts
+import pandas as pd
 
 def run():
+    '''
     data = read_csv.read_csv('data.csv')
     # Filtro por continente
     # data = list(filter(lambda item: item['Continent'] == 'South America', data))
@@ -30,10 +32,18 @@ def run():
     countries = list(map(lambda x: x['Country/Territory'], data))
     percentages = list(map(lambda x: x['World Population Percentage'], data))
     charts.generate_piechart(countries, percentages)
-
+'''
 
     # Poblacion por años de un pais
+    
+    df = pd.read_csv('data.csv')
+    df = df[df['Continent'] == 'Europe']
 
+    countries = df['Country/Territory'].values
+    percentages = df['World Population Percentage'].values
+    charts.generate_piechart(countries, percentages)
+
+    data = read_csv.read_csv('data.csv')
     country = input('Type Country => ')
     print(country)
     result = mod.population_by_country(data, country)
